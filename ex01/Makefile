@@ -6,16 +6,16 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/02 11:58:25 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/02 12:02:10 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= templates
+NAME:= iter
 
 MAINSRC		:=	main.cpp
 
 BUILD_PATH	:= .build/
-HEADER		:=	whatever.hpp
+HEADER		:=	iter.hpp
 
 MAINOBJ		:= $(addprefix $(BUILD_PATH), $(MAINSRC:.cpp=.o))
 CLASSOBJ	:= $(addprefix $(BUILD_PATH), $(CLASSSRC:.cpp=.o))
