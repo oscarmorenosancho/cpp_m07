@@ -6,34 +6,31 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/04 13:43:32 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/04 13:35:52 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= iter
+NAME:= array
 
 MAINSRC		:=	main.cpp
 
 BUILD_PATH	:= .build/
-HEADER		:=	iter.hpp
+HEADER		:=	Array.hpp
 
 MAINOBJ		:= $(addprefix $(BUILD_PATH), $(MAINSRC:.cpp=.o))
-CLASSOBJ	:= $(addprefix $(BUILD_PATH), $(CLASSSRC:.cpp=.o))
 MAINDEPS	:= $(addprefix $(BUILD_PATH), $(MAINSRC:.cpp=.d))
-CLASSDEPS	:= $(addprefix $(BUILD_PATH), $(CLASSSRC:.cpp=.d))
 
-CC			:=	@c++
+CC			:=	c++
 RM			:=	@rm -Rf
-CFLAGS		:=	-Wall -Werror -Wextra -std=c++98
+CFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -g
 
 folder_create 	= $(shell mkdir -p $(1))
 
 .SECONDEXPANSION:
 
-
 $(BUILD_PATH)%.o : %.cpp ${HEADER} Makefile | $$(call folder_create,$$(dir $$@))
 	@echo "Compiling" $@
-	${CC} ${CFLAGS}  -c -I. $< -o $@
+	${CC} ${CFLAGS} -c -I. $< -o $@
 
 all : $(NAME)
 

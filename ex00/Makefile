@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/02 11:58:25 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/04 13:43:44 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ folder_create 	= $(shell mkdir -p $(1))
 
 $(BUILD_PATH)%.o : %.cpp ${HEADER} Makefile | $$(call folder_create,$$(dir $$@))
 	@echo "Compiling" $@
-	${CC} ${CFLAGS} -c $< -o $@
+	${CC} ${CFLAGS} -c -I.  $< -o $@
 
 all : $(NAME)
 
