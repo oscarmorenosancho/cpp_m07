@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:24:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/04 13:38:54 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:23:52 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,21 @@ template <class T> Array<T>::~Array()
 template <class T> Array<T>::Array(const Array<T>& b): sizeTooLowException(STLE),
 		indexOutOfRangeException(IOORE)
 {
-	(void)b;
+	size = b.size;
+	data = new T[size];
+	for(int i = 0; i < size; i++)
+		data[i] = b.data[i];
 }
 
 template <class T> Array<T>& Array<T>::operator=(const Array<T>& b)
 {
-	return new Array<T>(b);
+	if (data)
+		delete[](data);
+	size = b.size;
+	data = new T[size];
+	for(int i = 0; i < size; i++)
+		data[i] = b.data[i];
+	return (*this);
 }
 
 template <class T> T& Array<T>::operator[](int i)

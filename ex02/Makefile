@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/04 13:35:52 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/04 16:22:21 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ MAINSRC		:=	main.cpp
 
 BUILD_PATH	:= .build/
 HEADER		:=	Array.hpp
+TMPL		:=	Array.tpp
 
 MAINOBJ		:= $(addprefix $(BUILD_PATH), $(MAINSRC:.cpp=.o))
 MAINDEPS	:= $(addprefix $(BUILD_PATH), $(MAINSRC:.cpp=.d))
@@ -28,7 +29,7 @@ folder_create 	= $(shell mkdir -p $(1))
 
 .SECONDEXPANSION:
 
-$(BUILD_PATH)%.o : %.cpp ${HEADER} Makefile | $$(call folder_create,$$(dir $$@))
+$(BUILD_PATH)%.o : %.cpp ${HEADER} ${TMPL} Makefile | $$(call folder_create,$$(dir $$@))
 	@echo "Compiling" $@
 	${CC} ${CFLAGS} -c -I. $< -o $@
 
