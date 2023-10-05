@@ -6,24 +6,24 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:24:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/04 16:23:52 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/05 10:42:27 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-template <class T> Array<T>::Array(): sizeTooLowException(STLE),
+template <class T> Array<T>::Array(): negativeSizeException(STLE),
 	indexOutOfRangeException(IOORE)
 {
 	size = 0;
 	data = nullptr;
 }
 
-template <class T> Array<T>::Array(int n): sizeTooLowException(STLE),
+template <class T> Array<T>::Array(int n): negativeSizeException(STLE),
 		indexOutOfRangeException(IOORE)
 {
 	if (n < 0)
-		throw sizeTooLowException;
+		throw negativeSizeException;
 	size = n;
 	data = new T[size];
 }
@@ -38,7 +38,7 @@ template <class T> Array<T>::~Array()
 	}
 }
 
-template <class T> Array<T>::Array(const Array<T>& b): sizeTooLowException(STLE),
+template <class T> Array<T>::Array(const Array<T>& b): negativeSizeException(STLE),
 		indexOutOfRangeException(IOORE)
 {
 	size = b.size;
@@ -60,7 +60,7 @@ template <class T> Array<T>& Array<T>::operator=(const Array<T>& b)
 
 template <class T> T& Array<T>::operator[](int i)
 {
-	if (i < 0 || i > size)
+	if (i < 0 || i > size - 1 || !data)
 		throw indexOutOfRangeException;
 	return (data[i]);
 }
