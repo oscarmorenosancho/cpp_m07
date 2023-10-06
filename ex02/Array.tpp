@@ -6,10 +6,12 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:24:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/05 10:42:27 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:01:00 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef _ARRAY_TPP_
+# define _ARRAY_TPP_
 #include "Array.hpp"
 
 template <class T> Array<T>::Array(): negativeSizeException(STLE),
@@ -64,3 +66,5 @@ template <class T> T& Array<T>::operator[](int i)
 		throw indexOutOfRangeException;
 	return (data[i]);
 }
+
+#endif
