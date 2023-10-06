@@ -61,6 +61,7 @@ int main(int, char**)
 	{
 		numbers[i] = rand();
 	}
+	std::cout << "Numbers size: " << numbers.size() << std::endl;
 	delete [] mirror;//
 	delete [] mirror2;//
 	return 0;
