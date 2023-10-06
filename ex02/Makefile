@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/10/04 16:22:21 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/10/06 13:52:32 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ $(BUILD_PATH)%.o : %.cpp ${HEADER} ${TMPL} Makefile | $$(call folder_create,$$(d
 
 all : $(NAME)
 
-$(NAME) : ${MAINOBJ} ${HEADER} Makefile
+$(NAME) : ${MAINOBJ} ${HEADER} ${TMPL} Makefile
 	@echo "Linking" $@
 	${CC} ${CFLAGS} ${MAINOBJ} -o $@
 

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:24:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/10/06 11:01:00 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:05:52 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ template <class T> Array<T>::Array(const Array<T>& b): negativeSizeException(STL
 	size = b.size;
 	data = new T[size];
 	for(int i = 0; i < size; i++)
-		data[i] = b.data[i];
+		data[i] = T(b.data[i]);
 }
 
 template <class T> Array<T>& Array<T>::operator=(const Array<T>& b)
@@ -56,7 +56,7 @@ template <class T> Array<T>& Array<T>::operator=(const Array<T>& b)
 	size = b.size;
 	data = new T[size];
 	for(int i = 0; i < size; i++)
-		data[i] = b.data[i];
+		data[i] = T(b.data[i]);
 	return (*this);
 }
 
